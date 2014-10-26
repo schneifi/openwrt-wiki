@@ -3,7 +3,6 @@ TP-Link TL-WA7210N
 
 ===== Supported Versions =====
 ^ Version/Model ^ Launch Date ^ S/N ^ OpenWrt Version Supported ^ Model Specific Notes ^
-
 | v2.1 |  2014-??  | 2141002T00247 |  WIP  | 2.4 GHz outdoor AP |
 
 
@@ -87,8 +86,8 @@ sysupgrade /tmp/xxx.abc
 <code>
 cd /tmp/
 wget http://http://downloads.openwrt.org/snapshots/trunk/XXX/xxx.abc
-mtd write /tmp/xxx.abc linux && reboot</code>
-
+mtd write /tmp/xxx.abc linux && reboot
+</code>
 
 ===== Basic configuration =====
 -> [[doc:howto:basic.config|Basic configuration]] After flashing, proceed with this.\\
@@ -194,8 +193,6 @@ How to connect to the JTAG Port of this specific device:
 ===== Bootlogs =====
 
 ==== OEM bootlog ====
-<HTML>
-<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
 <code>
 
 U-Boot 1.1.4 (Mar 20 2013 - 09:20:08)
@@ -419,14 +416,9 @@ br0: port 2(ath0) entering disabled state
  
  DES SSID SET=TP-LINK_D7B5FC 
 br0: port 2(ath0) entering forwarding state
-
 </code>
-</p>
-</HTML>
 
 ==== U-Boot printenv ====
-<HTML>
-<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
 <code>
 hornet> printenv
 bootargs=console=ttyS0,115200 root=31:02 rootfstype=squashfs init=/sbin/init mtdparts=ar7240-nor0:256k(u-boot),64k(u-boot-env),2752k(rootfs),896k(uIma)
@@ -443,16 +435,9 @@ ethact=eth0
 </code>
 
 ==== OpenWrt bootlog ====
-<HTML>
-<p style="padding: 10px;border:1px solid grey;height:600px;font:10px/14px Georgia, Garamond, Serif;overflow:Auto;background-color:#FFFFFF">
 <code>
-
-PUT HERE YOUR BOOTLOG
-
+FIXME: PUT HERE YOUR BOOTLOG
 </code>
-</p>
-</HTML>
-
 
 ===== Notes =====
 
