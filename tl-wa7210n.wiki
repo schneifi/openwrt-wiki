@@ -254,6 +254,57 @@ How to connect to the JTAG Port of this specific device:
 
 **Photo of PCB with markings**
 
+==== GPIOs ====
+-> [[doc:hardware:port.GPIO]]
+The AR933x platform provides 30 GPIOs. Some of them are used by the router for status, buttons and other stuff. The table below shows the results of some investigation:
+
+^        ^               ^            ^  Voltage level at GPIO in output-mode  ^^  gpioX/value in input-mode when GPIO is: ^^^
+^  GPIO  ^  Common Name  ^  PCB Name  ^  gpioX/value=1  ^ gpioX/value=0         ^  Floating  ^  Pulled to GND  ^  Pulled to Vcc  ^
+|      0 |  Signal strength 1     |  LED5      |  3.28           |  0                     |            |                 |                  |
+|      1 |  Signal strength 2     |  LED6      |  3.28           |  0                     |            |                 |                  |
+|      2 |               |            |                 |                       |            |                 |                  |
+|      3 |               |            |                 |                       |            |                 |                  |
+|      4 |               |            |                 |                       |            |                 |                  |
+|      5 |               |            |                 |                       |            |                 |                  |
+|      6 |               |            |                 |                       |            |                 |                  |
+|      7 |               |            |                 |                       |            |                 |                  |
+|      8 |               |            |                 |                       |            |                 |                  |
+|      9 |               |            |                 |                       |            |                 |                  |
+|     10 |               |            |                 |                       |            |                 |                  |
+|     11 |               |            |                 |                       |            |                 |                  |
+|     12 |               |            |                 |                       |            |                 |                  |
+|     13 |               |            |                 |                       |            |                 |                  |
+|     14 |               |            |                 |                       |            |                 |                  |
+|     15 |               |            |                 |                       |            |                 |                  |
+|     16 |               |            |                 |                       |            |                 |                  |
+|     26 |  LAN                   |  LED4      |  0           |  3.28                     |            |                 |                  |
+|     18 |               |            |                 |                       |            |                 |                  |
+|     19 |               |            |                 |                       |            |                 |                  |
+|     20 |               |            |                 |                       |            |                 |                  |
+|     21 |               |            |                 |                       |            |                 |                  |
+|     22 |               |            |                 |                       |            |                 |                  |
+|     23 |               |            |                 |                       |            |                 |                  |
+|     24 |               |            |                 |                       |            |                 |                  |
+|     25 |               |            |                 |                       |            |                 |                  |
+|     26 |  Signal strength 4     |  LED3      |  0           |  3.28                     |            |                 |                  |
+|     27 |  Signal strength 3     |  LED2      |  0           |  3.28                     |            |                 |                  |
+|     28 |               |            |                 |                       |            |                 |                  |
+|     29 |               |            |                 |                       |            |                 |                  |
+
+To make the GPIOs available via sysfs, the required ones have to be exported to userspace, as it is explained on a page of the [[http://squidge.sourceforge.net/gpio/|Squidge-Project]]. Kernel modules occupying that resource need to be removed before (e.g. "leds-gpio" and "gpio-buttons"). In output-mode, voltage levels of the GPIOs were measured against GND, after the value 1 or 0 had been written to /sys/class/gpio/gpioX/value. In input-mode, the value of the file /sys/class/gpio/gpioX/value was read when the GPIO was floating (initial state), pulled to GND or pulled to Vcc. 
+
+==== LEDs ====
+How to configure LEDs in general, see the LED section in the [[doc/uci/system]].
+
+The TL-WA7210N has 5 LEDs:
+
+^ LED name ^ LED print ^ Internal name ^ Trigger ^ PCB label ^
+| Power       | Power symbol             | N/A (fixed supply)       | N/A | LED1 |
+| LAN         | LAN                      | tl-wa7210:green:lan      | ?   | LED4 |
+| Signal 25%  | Wireless Signal Strength | tl-wa7210:green:signal1  | ?   | LED5 |
+| Signal 50%  | Wireless Signal Strength | tl-wa7210:green:signal2  | ?   | LED6 |
+| Signal 75%  | Wireless Signal Strength | tl-wa7210:green:signal3  | ?   | LED2 |
+| Signal 100% | Wireless Signal Strength | tl-wa7210:green:signal4  | ?   | LED3 |
 
 ===== Debricking =====
 -> [[doc:howto:generic.debrick]]
@@ -679,6 +730,9 @@ root@OpenWrt:/#
 
 ===== Notes =====
 
+GPIOs:
+
+The TL-WA7210Nv2 has 6 LEDs
 
 ===== Tags =====
 For some Help with the Tags, please have a look here: [[meta/tags]]
