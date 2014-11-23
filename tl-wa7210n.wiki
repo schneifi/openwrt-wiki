@@ -3,7 +3,6 @@ TP-Link TL-WA7210N
 
 ===== Supported Versions =====
 ^ Version/Model ^ Launch Date ^ S/N ^ OpenWrt Version Supported ^ Model Specific Notes ^
-
 | v2.1 |  2014-??  | 2141002T00247 |  WIP  | 2.4 GHz outdoor AP |
 
 
@@ -11,7 +10,7 @@ OEM source code available at: [[http://www.tp-link.com.de/resources/gpl/150Route
 
 ===== Hardware Highlights =====
 ^ SoC ^ Ram ^ Flash ^ Network ^ USB ^ Serial ^ JTag ^
-| QCA AR9331 | 32MiB | 4MiB | 1x 10/100 RJ45 (passive PoE) | No | Yes | ? |
+| QCA AR9331 | 32MiB | 4MiB | 1x GbE (passive PoE) | No | Yes | ? |
 
 Manufacturer's site: [[http://www.tp-link.com/en/products/details/?categoryid=1246&model=TL-WA7210N]]
 
@@ -172,18 +171,6 @@ Set up your Internet connection, configure wireless, configure USB port, etc.
 The default network configuration is:
 ^ Interface Name ^ Description ^ Default configuration ^
 | br-lan | LAN & WiFi | 192.168.1.1/24 | 
-| vlan0 (eth0.0) | LAN ports (1 to 4) | None | 
-| vlan1 (eth0.1) | WAN port | DHCP | 
-| wl0 | WiFi | Disabled | 
-
-==== Switch Ports (for VLANs) ====
-Numbers 0-3 are Ports 1-4 as labeled on the unit, number 4 is the Internet (WAN) on the unit, 5 is the internal connection to the router itself. Don't be fooled: Port 1 on the unit is number 3 when configuring VLANs. vlan0 = eth0.0, vlan1 = eth0.1 and so on.
-^ Port ^ Switch port ^
-| Internet (WAN) | 4 | 
-| LAN 1 | 3 | 
-| LAN 2 | 2 | 
-| LAN 3 | 1 | 
-| LAN 4 | 0 | 
 
 ==== Failsafe mode ====
 -> [[doc:howto:generic.failsafe]]
@@ -736,4 +723,4 @@ The TL-WA7210Nv2 has 6 LEDs
 ===== Tags =====
 For some Help with the Tags, please have a look here: [[meta/tags]]
 
-{{tag>FastEthernet 1NIC 1WNIC ath9k 32RAM 4Flash MIPS32}}
+{{tag>GigabitEthernet 1NIC 1WNIC ath9k 32RAM 4Flash MIPS32}}
