@@ -260,8 +260,8 @@ The AR933x platform provides 30 GPIOs. Some of them are used by the router for s
 
 ^        ^               ^            ^  Voltage level at GPIO in output-mode  ^^  gpioX/value in input-mode when GPIO is: ^^^
 ^  GPIO  ^  Common Name  ^  PCB Name  ^  gpioX/value=1  ^ gpioX/value=0         ^  Floating  ^  Pulled to GND  ^  Pulled to Vcc  ^
-|      0 |  Signal strength 1     |  LED5      |  3.28           |  0                     |            |                 |                  |
-|      1 |  Signal strength 2     |  LED6      |  3.28           |  0                     |            |                 |                  |
+|      0 |  Signal strength 1     |  LED5      |  3.28 (active high)          |  0                     |            |                 |                  |
+|      1 |  Signal strength 2     |  LED6      |  3.28 (active high)          |  0                     |            |                 |                  |
 |      2 |               |            |                 |                       |            |                 |                  |
 |      3 |               |            |                 |                       |            |                 |                  |
 |      4 |               |            |                 |                       |            |                 |                  |
@@ -277,7 +277,7 @@ The AR933x platform provides 30 GPIOs. Some of them are used by the router for s
 |     14 |               |            |                 |                       |            |                 |                  |
 |     15 |               |            |                 |                       |            |                 |                  |
 |     16 |               |            |                 |                       |            |                 |                  |
-|     26 |  LAN                   |  LED4      |  0           |  3.28                     |            |                 |                  |
+|     26 |  LAN                   |  LED4      |  3.28        |  0 (active low)                     |            |                 |                  |
 |     18 |               |            |                 |                       |            |                 |                  |
 |     19 |               |            |                 |                       |            |                 |                  |
 |     20 |               |            |                 |                       |            |                 |                  |
@@ -286,8 +286,8 @@ The AR933x platform provides 30 GPIOs. Some of them are used by the router for s
 |     23 |               |            |                 |                       |            |                 |                  |
 |     24 |               |            |                 |                       |            |                 |                  |
 |     25 |               |            |                 |                       |            |                 |                  |
-|     26 |  Signal strength 4     |  LED3      |  0           |  3.28                     |            |                 |                  |
-|     27 |  Signal strength 3     |  LED2      |  0           |  3.28                     |            |                 |                  |
+|     26 |  Signal strength 4     |  LED3      |  3.28        |  0 (active low)                     |            |                 |                  |
+|     27 |  Signal strength 3     |  LED2      |  3.28        |  0 (active low)                     |            |                 |                  |
 |     28 |               |            |                 |                       |            |                 |                  |
 |     29 |               |            |                 |                       |            |                 |                  |
 
