@@ -30,6 +30,14 @@ This device is very similar to its 5 GHz sibling, [[/toh/tp-link/tl-wa7510n]]
   - → [[doc:howto:generic.flashing|Install OpenWrt]]
   - → **»»»»here»»»»[[about/latest|Latest OpenWrt release]]««««here««««**
 
+For the initial install of OpenWRT, download the version named
+openwrt-ar71xx-generic-tl-wa7210n-v2-squashfs-factory.bin
+
+The web UI does some sanity check on the file name. Rename the file downloaded above to something like
+wa7210nv2_en_3_99_0_up(141123).bin
+
+The difference to the OEM firmware you can download is that we skip "_boot" from the filename so that upgrade tool of the original firmware knows it will get a firmware image without boot loader.
+
 ==== Flash Layout ====
 
 FIXME
@@ -37,15 +45,7 @@ Please check out the article [[doc:techref:Flash Layout]]. It contains an exampl
 
 ==== OEM easy installation ====
 
-| FIXME The instructions below are for Broadcom devices and only serve as an example. Don't leave them in place if they do not apply to a particular device! |
-
-This section deals with how you install OpenWrt from a device freshly opened.  Plus the steps required such as reset to factory defaults if the device has already been configured
-
-**Note:** Reset router to factory defaults if it has been previously configured.
-  *Browse to http://192.168.1.1/Upgrade.asp
-  *Upload .bin file to router
-  *Wait for it to reboot
-  *Telnet to 192.168.1.1 and set a root password, or browse to http://192.168.1.1 if LuCI is installed.
+FIXME
 
 ==== OEM installation using the TFTP method ====
 FIXME
@@ -100,7 +100,6 @@ With the TL-WA7210Nv2, there is a catch: the stock firmware is obtained from the
   * look inside the ZIP file downloaded above
   * in case the file name of this firmware file does not contain the word **//"boot"//** in it, you can simply revert back to original firmware
   * in case the file name of this firmware file does contain the word **//"boot"//** in it, you need to cut off parts of the image file //before// flashing it:
-
 
 An example of an image file with the word "boot" in it is ''wa7210nv2_en_3_18_0_up_boot(131118).bin''.
 
@@ -172,7 +171,7 @@ Set up your Internet connection, configure wireless, configure USB port, etc.
 
 The default network configuration is:
 ^ Interface Name ^ Description ^ Default configuration ^
-| br-lan | LAN & WiFi | 192.168.1.111/24 | 
+| br-lan | LAN & WiFi | 192.168.1.1/24 | 
 | vlan0 (eth0.0) | LAN ports (1 to 4) | None | 
 | vlan1 (eth0.1) | WAN port | DHCP | 
 | wl0 | WiFi | Disabled | 
