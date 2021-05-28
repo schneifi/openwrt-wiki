@@ -37,6 +37,15 @@ wa7210nv2_en_3_99_0_up(141123).bin
 
 The difference to the OEM firmware you can download is that we skip "_boot" from the filename so that upgrade tool of the original firmware knows it will get a firmware image without boot loader.
 
+==== Enable internal Antenna ====
+
+gpio 28 enables amplifier.
+<code>
+echo 28 > /sys/class/gpio/export
+echo "out" > /sys/class/gpio/gpio28/direction
+echo 1 > /sys/class/gpio/gpio28/value
+</code>
+
 ==== Flash Layout ====
 
 FIXME
